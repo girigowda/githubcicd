@@ -6,6 +6,9 @@ name: Deploy to ECS Cluster.
 #on: push
 #testing
 on:
+ push:
+   branches:
+     - dev
  workflow_dispatch:
   push:
     branches:
