@@ -3,8 +3,12 @@ name: Deploy to ECS Cluster.
 # push:
 #   branches:
 #     - dev
-on: push
-
+#on: push
+on:
+ workflow_dispatch:
+  push:
+    branches:
+      - master
 jobs:
  deploy-dev:
     runs-on: 
@@ -59,8 +63,6 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
           docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
 
-
-on: [workflow_dispatch]
 
  deploy-prod:
     runs-on:
