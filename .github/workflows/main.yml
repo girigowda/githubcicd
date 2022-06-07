@@ -9,8 +9,8 @@ jobs:
  deploy:
     runs-on: 
       - self-hosted
-      - dev
-      - master
+        #- dev
+        #- master
       
     steps:
       - name: Checkout
